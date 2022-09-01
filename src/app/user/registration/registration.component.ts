@@ -12,7 +12,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class RegistrationComponent{
 
-  aleartColor='';
+  aleartColor='sky';
   aleartMsg='';
   visible=false;
 
@@ -56,15 +56,25 @@ export class RegistrationComponent{
     this.aleartColor='blue';
     this.visible=true;
     this.aleartMsg='Wait you are being registered...'
-    console.log('Register is Called')
+
     
-    let email='',password='';
-    email=this.registerForm.value.email;
-    password=this.registerForm.value.password;
 
-    const userCred=await this.auth.createUserWithEmailAndPassword(
-        email,password
-    );
+
+    const email= this.registerForm.value.email ? this.registerForm.value.email :' ';
+    const password= this.registerForm.value.password ? this.registerForm.value.password :' ';
+
+
+    try{
+      const userCred=await this.auth.createUserWithEmailAndPassword(
+          email,password
+      );
+    }catch(e){
+      console.log(e);
+      this.aleartColor='red';
+      this.aleartMsg='Unexpected Error';
+      return;
+    }
+    this.aleartColor='blue';
+    this.aleartMsg='You have been registered';
   }
-
 }
