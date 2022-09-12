@@ -16,7 +16,7 @@
       class="text-red-400"
       *ngIf="control.errors?.['minlength']"
       >
-      Enter Name of atleast of length {{control.errors?.['minlength']['requiredLength']}}.
+      Enter {{fieldName}} of atleast of length {{control.errors?.['minlength']['requiredLength']}}.
     </p>
     <p 
       class="text-red-400"
@@ -41,6 +41,18 @@
       *ngIf="control.errors?.['pattern']"
       >
       Password must have at least 8 characters, must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number ,Can contain special characters
+    </p>
+    <p 
+      class="text-red-400"
+      *ngIf="control.errors?.['noMatch']"
+      >
+      Password's don't match.
+    </p>
+    <p 
+      class="text-red-400"
+      *ngIf="control.errors?.['emailTaken']"
+      >
+      User already exists
     </p>
 
 

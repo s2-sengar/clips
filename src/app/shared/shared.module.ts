@@ -7,6 +7,7 @@ import { InputComponent } from './input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { AleartComponent } from './aleart/aleart.component';
+import { EventBlockerDirective } from './directives/event-blocker.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AleartComponent } from './aleart/aleart.component';
     TabsContainerComponent,
     TabsComponent,
     InputComponent,
-    AleartComponent
+    AleartComponent,
+    EventBlockerDirective
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { AleartComponent } from './aleart/aleart.component';
     TabsContainerComponent,
     TabsComponent,
     InputComponent,
-    AleartComponent
+    AleartComponent,
+    EventBlockerDirective
   ]
 })
 export class SharedModule { }

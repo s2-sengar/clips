@@ -1,4 +1,11 @@
-<form>
+<app-aleart 
+  [color]="aleartColor"
+  *ngIf="visible"
+  >
+  {{aleartMsg}}
+</app-aleart>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
     <!-- Email -->
     <div class="mb-3">
       <label class="inline-block mb-2">Email</label>
@@ -6,7 +13,8 @@
         class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
           duration-500 focus:outline-none rounded bg-transparent
           focus:border-indigo-400"
-        placeholder="Enter Email" />
+        placeholder="Enter Email"
+        [formControl]="email" />
     </div>
     <!-- Password -->
     <div class="mb-3">
@@ -14,11 +22,14 @@
       <input type="password"
         class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
         duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-        placeholder="Password" />
+        placeholder="Password" 
+        [formControl]="password"/>
     </div>
     <button type="submit"
       class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
-        hover:bg-indigo-500">
+            hover:bg-indigo-500 disabled:bg-opacity-50 disabled:bg-indigo-400"
+        [disabled]="loginForm.invalid || disable"
+        >
       Submit
     </button>
 </form>

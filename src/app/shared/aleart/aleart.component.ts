@@ -17,7 +17,6 @@ export class AleartComponent implements OnInit {
 
   get bgColor(){
     let bg=`bg-${this.color}`;
-      console.log(bg);
     return bg;
   }
 

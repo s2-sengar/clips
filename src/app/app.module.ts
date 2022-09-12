@@ -13,21 +13,41 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 // Authentication
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth'
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component'
+// For Video Upload
+import {AngularFireStorageModule} from '@angular/fire/compat/storage'
 
+// Import Video Routing
+import { VideoModule } from './video/video.module';
+import { ClipComponent } from './clip/clip.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent,
+    AboutComponent,
+    ClipComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     UserModule,
     // initializing firebase
     AngularFireModule.initializeApp(environment.firebase),
     // Authentication
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    // Angular Database
+    AngularFirestoreModule,
+
+    VideoModule,
+
+    AppRoutingModule,
+    AngularFireStorageModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
